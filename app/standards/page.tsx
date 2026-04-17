@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+
+export const metadata: Metadata = {
+  title: "Membership Standards",
+  description:
+    "Explore The Growth Hub membership standards, governance principles, and policy alignment for high-accountability executive operators.",
+};
 
 const principles = [
   {

@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
+
+export const metadata: Metadata = {
+  title: "Refund Policy",
+  description:
+    "Review The Growth Hub refund eligibility, non-refundable conditions, request process, and chargeback-prevention policy.",
+};
 
 export default function RefundPage() {
   return (

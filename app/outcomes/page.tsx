@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+
+export const metadata: Metadata = {
+  title: "Member Outcomes",
+  description:
+    "Review verified Growth Hub member outcomes across SaaS expansion, infrastructure stabilization, and global payment-readiness initiatives.",
+};
 
 const caseStudies = [
   {

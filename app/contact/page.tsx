@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+
+export const metadata: Metadata = {
+  title: "Contact The Growth Hub",
+  description:
+    "Contact the Growth Hub membership and partnership desks for onboarding, enterprise due diligence, and executive access clarification.",
+};
 
 export default function ContactPage() {
   return (

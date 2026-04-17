@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "Read the Growth Hub Terms of Service covering membership access, acceptable use, intellectual property, and liability boundaries.",
+};
 
 export default function TermsPage() {
   return (

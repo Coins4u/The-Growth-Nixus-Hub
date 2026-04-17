@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+
+export const metadata: Metadata = {
+  title: "About The Growth Hub",
+  description:
+    "Learn how The Growth Hub supports sovereign operators with strategic clarity, execution discipline, and enterprise-grade commercial integrity.",
+};
 
 export default function AboutPage() {
   const operatingPrinciples = [

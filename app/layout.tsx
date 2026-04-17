@@ -13,9 +13,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Growth Hub",
+  metadataBase: new URL("https://thegrowthnexus.com"),
+  title: {
+    default: "The Growth Nexus | Advanced Systems for Global Scale",
+    template: "%s | The Growth Nexus",
+  },
   description:
-    "The Growth Hub is an exclusive business community for ambitious founders, operators, and growth leaders.",
+    "The Growth Hub is a transparent executive community for infrastructure, AI automation, and high-ticket B2B growth systems.",
+  openGraph: {
+    title: "The Growth Nexus | Advanced Systems for Global Scale",
+    description:
+      "Architecting high-performance digital infrastructure, AI automation, and B2B growth engines for the next generation of digital products.",
+    images: ["/opengraph-image"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Growth Nexus | Advanced Systems for Global Scale",
+    description:
+      "Architecting high-performance digital infrastructure, AI automation, and B2B growth engines for the next generation of digital products.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function RootLayout({

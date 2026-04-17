@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
+
+export const metadata: Metadata = {
+  title: "DMCA and Ownership",
+  description:
+    "Review The Growth Hub DMCA, ownership, and unauthorized-use policy for protected educational and strategic assets.",
+};
 
 export default function DmcaPage() {
   return (

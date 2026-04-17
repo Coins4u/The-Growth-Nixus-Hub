@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navLinks = [
@@ -16,6 +17,7 @@ const navLinks = [
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const closeOnResize = () => {
@@ -28,6 +30,12 @@ export function SiteHeader() {
   }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
+  const isActiveLink = (href: string) => {
+    if (href === "/") return pathname === "/";
+    if (href === "/legal/terms") return pathname.startsWith("/legal") || pathname === "/terms" || pathname === "/privacy" || pathname === "/refunds";
+    if (href === "/portal") return pathname.startsWith("/portal");
+    return pathname === href;
+  };
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur">
@@ -61,7 +69,9 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded px-2 py-1 hover:bg-slate-900 hover:text-indigo-300"
+              className={`rounded px-2 py-1 hover:bg-slate-900 hover:text-indigo-300 ${
+                isActiveLink(link.href) ? "bg-indigo-500/15 text-indigo-200" : ""
+              }`}
             >
               {link.label}
             </Link>
@@ -75,7 +85,9 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className="rounded-lg px-3 py-2.5 hover:bg-slate-800 hover:text-indigo-200"
+                className={`rounded-lg px-3 py-2.5 hover:bg-slate-800 hover:text-indigo-200 ${
+                  isActiveLink(link.href) ? "bg-indigo-500/15 text-indigo-200" : ""
+                }`}
               >
                 {link.label}
               </Link>

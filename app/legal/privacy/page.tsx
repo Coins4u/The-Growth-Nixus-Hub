@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Understand how The Growth Hub collects, processes, protects, and retains member data under transparent privacy standards.",
+};
 
 export default function PrivacyPage() {
   return (

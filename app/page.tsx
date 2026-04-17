@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { HomeCredibilitySections } from "./components/home-credibility-sections";
+import { LiveStatisticsBar } from "./components/live-statistics-bar";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
+
+export const metadata: Metadata = {
+  title: "The Growth Nexus | Advanced Systems for Global Scale",
+  description:
+    "The Growth Hub is a high-tier executive community delivering infrastructure architecture, AI automation systems, and B2B growth operations for global digital scale.",
+};
 
 export default function Home() {
   const curriculum = [
@@ -74,9 +82,7 @@ export default function Home() {
                 Review Execution Outcomes
               </Link>
             </div>
-            <div className="mt-8 rounded-xl border border-slate-800 bg-slate-950/70 px-4 py-3 text-sm font-semibold text-slate-200">
-              Live Statistics: 1,482 Active Members | $12M+ Partner Revenue | 99.9% Infrastructure Uptime
-            </div>
+            <LiveStatisticsBar />
           </div>
         </section>
 

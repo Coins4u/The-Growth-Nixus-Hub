@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+
+export const metadata: Metadata = {
+  title: "Legal Framework",
+  description:
+    "Review the Growth Hub legal framework, including terms of service, privacy policy, refund policy, and ownership standards.",
+};
 
 export default function LegalPage() {
   const legalLinks = [
