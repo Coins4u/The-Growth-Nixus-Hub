@@ -361,7 +361,7 @@ export default function PortalPage() {
             />
           ) : null}
           <p className="mt-6 text-center text-xs text-slate-400">
-            Need help? Contact <span className="text-slate-200">membership@thegrowthhub.com</span>
+            Need help? Contact <span className="text-slate-200">hamzaamaarad757@gmail.com</span>
           </p>
         </motion.section>
       </main>
@@ -408,7 +408,7 @@ export default function PortalPage() {
           ))}
         </nav>
         <a
-          href="mailto:membership@thegrowthhub.com"
+          href="mailto:hamzaamaarad757@gmail.com"
           className="mt-4 inline-block text-sm text-slate-300 hover:text-indigo-200"
         >
           Member Support

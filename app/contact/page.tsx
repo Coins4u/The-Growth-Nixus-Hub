@@ -21,7 +21,7 @@ export default function ContactPage() {
         <div className="mt-8 grid gap-4 rounded-xl border border-slate-800 bg-slate-900/70 p-5 sm:mt-10 sm:gap-6 sm:p-8 sm:grid-cols-2">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-indigo-300">Email</p>
-            <p className="mt-2 text-slate-100">membership@thegrowthhub.com</p>
+            <p className="mt-2 text-slate-100">hamzaamaarad757@gmail.com</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-indigo-300">Response Window</p>
@@ -29,7 +29,7 @@ export default function ContactPage() {
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-indigo-300">Partnership Desk</p>
-            <p className="mt-2 text-slate-100">partners@thegrowthhub.com</p>
+            <p className="mt-2 text-slate-100">hamzaamaarad757@gmail.com</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-indigo-300">Operations Office</p>

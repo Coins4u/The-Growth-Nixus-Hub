@@ -32,7 +32,7 @@ export default function RefundPage() {
           <section>
             <h2 className="text-lg font-semibold text-slate-100">3. Request Process</h2>
             <p>
-              Submit requests to billing@thegrowthhub.com with your full name, purchase email, and
+              Submit requests to hamzaamaarad757@gmail.com with your full name, purchase email, and
               transaction reference. Decisions are typically issued within 5 business days.
             </p>
           </section>

@@ -34,6 +34,11 @@ export const metadata: Metadata = {
       "Architecting high-performance digital infrastructure, AI automation, and B2B growth engines for the next generation of digital products.",
     images: ["/opengraph-image"],
   },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: ["/icon.svg"],
+    apple: ["/icon.svg"],
+  },
 };
 
 export default function RootLayout({

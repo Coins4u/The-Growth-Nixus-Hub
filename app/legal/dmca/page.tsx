@@ -28,7 +28,7 @@ export default function DmcaPage() {
             <p>
               We respect the intellectual property rights of others and respond to valid DMCA notices.
               Copyright owners who believe content infringes their rights may submit a formal complaint to
-              dmca@thegrowthhub.com.
+              hamzaamaarad757@gmail.com.
             </p>
           </section>
           <section>
