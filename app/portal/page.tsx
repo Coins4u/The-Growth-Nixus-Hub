@@ -64,6 +64,7 @@ const ACTIVATION_KEYS: LicenseKey[] = [
   { code: "CHA-12M-FF66", duration: "12 Months" },
 ];
 const ADMIN_CODE = "GH-2026-ADMIN";
+const AUDIT_BYPASS_CODE = "AUDIT-2026-TEST";
 
 function planLabelFromCode(code: string) {
   const prefix = code.split("-")[0];
@@ -95,6 +96,7 @@ const courseLibrary = courseCatalog.map((course) => ({
   progress: Math.round((course.completedSessions / course.sessions.length) * 100),
   href: `/portal/courses/${course.slug}`,
 }));
+const PROFESSIONAL_MODULE_LABEL = `${courseCatalog.length}+ Professional Modules`;
 
 const weeklyRoadmapTemplate = [
   { label: "Step 1: Onboarding", done: true },
@@ -220,6 +222,7 @@ export default function PortalPage() {
   });
   const [weeklyRoadmap, setWeeklyRoadmap] = useState(generateWeeklyRoadmap);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [moduleSearch, setModuleSearch] = useState("");
 
   const keyMap = useMemo(() => new Map(ACTIVATION_KEYS.map((item) => [item.code, item])), []);
   const persistedUnlocked = useSyncExternalStore(
@@ -232,6 +235,11 @@ export default function PortalPage() {
     () => window.localStorage.getItem("growthHubPortalRole") ?? "member",
     () => "member",
   );
+  const portalMode = useSyncExternalStore(
+    () => () => {},
+    () => window.localStorage.getItem("growthHubPortalMode") ?? "full",
+    () => "full",
+  );
   const membershipSummary = useSyncExternalStore(
     () => () => {},
     () => window.localStorage.getItem("growthHubMembershipSummary") ?? "Plan: Member - Active",
@@ -239,6 +247,14 @@ export default function PortalPage() {
   );
   const isUnlocked = portalState === "success" || persistedUnlocked;
   const isAdmin = portalRole === "admin";
+  const isAuditDemo = portalMode === "audit-demo";
+  const edgeNodeCourse = useMemo(() => courseCatalog.find((course) => course.title === "Edge Node Management"), []);
+  const filteredCourses = useMemo(() => {
+    const query = moduleSearch.trim().toLowerCase();
+    if (!query) return courseCatalog;
+    return courseCatalog.filter((course) => course.title.toLowerCase().includes(query));
+  }, [moduleSearch]);
+  const activeSection = isAuditDemo ? "dashboard" : section;
 
   useEffect(() => {
     if (!isUnlocked) return;
@@ -288,19 +304,23 @@ export default function PortalPage() {
     event.preventDefault();
     const submittedKey = keyValue.trim().toUpperCase();
 
-    if (submittedKey !== ADMIN_CODE && !keyMap.has(submittedKey)) {
+    if (submittedKey !== ADMIN_CODE && submittedKey !== AUDIT_BYPASS_CODE && !keyMap.has(submittedKey)) {
       setPortalState("error");
       return;
     }
 
     setPortalState("validating");
     window.setTimeout(() => {
-      const role = submittedKey === ADMIN_CODE ? "admin" : "member";
+      const isAdminLogin = submittedKey === ADMIN_CODE;
+      const isAuditLogin = submittedKey === AUDIT_BYPASS_CODE;
+      const role = isAdminLogin ? "admin" : isAuditLogin ? "audit" : "member";
+      const mode = isAuditLogin ? "audit-demo" : "full";
       const matchedLicense = keyMap.get(submittedKey);
-      const plan = submittedKey === ADMIN_CODE ? "Admin" : matchedLicense ? planLabelFromCode(matchedLicense.code) : "Member";
-      const duration = submittedKey === ADMIN_CODE ? "Unlimited" : matchedLicense?.duration ?? "Active";
+      const plan = isAdminLogin ? "Admin" : isAuditLogin ? "Audit Demo" : matchedLicense ? planLabelFromCode(matchedLicense.code) : "Member";
+      const duration = isAdminLogin ? "Unlimited" : isAuditLogin ? "Verifier Access" : matchedLicense?.duration ?? "Active";
       window.localStorage.setItem("growthHubPortalUnlocked", "true");
       window.localStorage.setItem("growthHubPortalRole", role);
+      window.localStorage.setItem("growthHubPortalMode", mode);
       window.localStorage.setItem("growthHubMembershipSummary", `Plan: ${plan} - ${duration}`);
       const storedCount = Number(window.localStorage.getItem("growthHubLiveMemberCount"));
       const baseline = Number.isNaN(storedCount) ? BASE_MEMBER_COUNT : storedCount;
@@ -380,24 +400,27 @@ export default function PortalPage() {
           <p className="mt-1">Support: Active</p>
         </div>
         <nav className="mt-6 grid gap-2">
-          {[
-            { id: "dashboard", label: "Dashboard Overview" },
-            { id: "courses", label: "Course Library" },
-            { id: "resources", label: "Resource Section" },
-          ].map((item) => (
+          {(isAuditDemo
+            ? [{ id: "dashboard", label: "Audit Demo Dashboard" }]
+            : [
+                { id: "dashboard", label: "Dashboard Overview" },
+                { id: "courses", label: `Course Library (${PROFESSIONAL_MODULE_LABEL})` },
+                { id: "resources", label: "Resource Section" },
+              ]
+          ).map((item) => (
             <button
               key={item.id}
               type="button"
               onClick={() => setSection(item.id as Section)}
               className={`rounded-lg px-3 py-2 text-left text-sm ${
-                section === item.id
+                activeSection === item.id
                   ? "bg-indigo-600 text-white"
                   : "bg-slate-800/70 text-slate-300 hover:bg-slate-800"
               }`}
             >
               <span className="inline-flex items-center gap-2">
                 {item.label}
-                {item.id === "resources" ? (
+                {item.id === "resources" && !isAuditDemo ? (
                   <span className="relative inline-flex h-2.5 w-2.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-500 opacity-75" />
                     <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-rose-500" />
@@ -407,23 +430,45 @@ export default function PortalPage() {
             </button>
           ))}
         </nav>
-        <a
-          href="mailto:hamzaamaarad757@gmail.com"
-          className="mt-4 inline-block text-sm text-slate-300 hover:text-indigo-200"
-        >
-          Member Support
-        </a>
-        <Link href="/portal/support" className="mt-2 inline-block text-sm text-slate-300 hover:text-indigo-200">
-          Help &amp; Support
-        </Link>
-        {isAdmin ? (
-          <Link href="/portal/admin/tickets" className="mt-2 inline-block text-sm text-slate-300 hover:text-indigo-200">
-            Admin Tickets
-          </Link>
+        <section className="mt-5 rounded-lg border border-slate-800 bg-slate-950/80 p-3">
+          <p className="text-[11px] uppercase tracking-[0.16em] text-indigo-300">Nexus Curriculum</p>
+          <p className="mt-1 text-xs text-slate-400">{PROFESSIONAL_MODULE_LABEL}</p>
+          <input
+            value={moduleSearch}
+            onChange={(event) => setModuleSearch(event.target.value)}
+            placeholder="Search modules (e.g., Edge Node)"
+            className="mt-3 w-full rounded border border-slate-700 bg-slate-900 px-2 py-1.5 text-xs text-slate-100 outline-none ring-indigo-500 focus:ring-1"
+          />
+          <div className="mt-3 max-h-44 space-y-1 overflow-y-auto pr-1 text-xs text-slate-300">
+            {filteredCourses.map((course) => (
+              <p key={course.slug} className="rounded bg-slate-900/70 px-2 py-1">
+                {course.title}
+              </p>
+            ))}
+            {filteredCourses.length === 0 ? <p className="px-1 text-slate-500">No matching modules found.</p> : null}
+          </div>
+        </section>
+        {!isAuditDemo ? (
+          <>
+            <a
+              href="mailto:hamzaamaarad757@gmail.com"
+              className="mt-4 inline-block text-sm text-slate-300 hover:text-indigo-200"
+            >
+              Member Support
+            </a>
+            <Link href="/portal/support" className="mt-2 inline-block text-sm text-slate-300 hover:text-indigo-200">
+              Help &amp; Support
+            </Link>
+            {isAdmin ? (
+              <Link href="/portal/admin/tickets" className="mt-2 inline-block text-sm text-slate-300 hover:text-indigo-200">
+                Admin Tickets
+              </Link>
+            ) : null}
+            <Link href="/portal/resources" className="mt-2 inline-block text-sm text-slate-300 hover:text-indigo-200">
+              Resources Library
+            </Link>
+          </>
         ) : null}
-        <Link href="/portal/resources" className="mt-2 inline-block text-sm text-slate-300 hover:text-indigo-200">
-          Resources Library
-        </Link>
         <Link href="/" className="mt-6 inline-block text-sm text-indigo-300 hover:text-indigo-200">
           Return to Main Site
         </Link>
@@ -451,7 +496,51 @@ export default function PortalPage() {
             </div>
           ) : null}
         </div>
-        {section === "dashboard" ? (
+        {isAuditDemo ? (
+          <section className="space-y-6">
+            <article className="rounded-2xl border border-indigo-500/30 bg-slate-900/70 p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-indigo-300">Audit Verification Mode</p>
+              <h2 className="mt-3 text-3xl font-semibold text-slate-100">Demo Dashboard Access</h2>
+              <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
+                You are viewing the auditor preview environment. This mode verifies that the private
+                learning infrastructure exists and contains operational curriculum content without requiring
+                an active paid member key.
+              </p>
+            </article>
+
+            <section className="grid gap-6 lg:grid-cols-2">
+              <article className="rounded-2xl border border-slate-800 bg-slate-900/60 p-8">
+                <p className="text-xs uppercase tracking-[0.18em] text-indigo-300">Course Titles</p>
+                <p className="mt-1 text-xs text-slate-400">{PROFESSIONAL_MODULE_LABEL}</p>
+                <ul className="mt-5 space-y-2 text-sm text-slate-200">
+                  {filteredCourses.map((course) => (
+                    <li key={course.slug} className="rounded border border-slate-800 bg-slate-950/60 px-3 py-2">
+                      {course.title}
+                    </li>
+                  ))}
+                  {filteredCourses.length === 0 ? (
+                    <li className="rounded border border-slate-800 bg-slate-950/60 px-3 py-2 text-slate-500">
+                      No matching modules found.
+                    </li>
+                  ) : null}
+                </ul>
+              </article>
+
+              <article className="rounded-2xl border border-slate-800 bg-slate-900/60 p-8">
+                <p className="text-xs uppercase tracking-[0.18em] text-indigo-300">Edge Node Briefings</p>
+                <h3 className="mt-3 text-xl font-semibold text-slate-100">Edge Node Management</h3>
+                <div className="mt-4 space-y-3">
+                  {(edgeNodeCourse?.sessions ?? []).slice(0, 5).map((session) => (
+                    <article key={session.title} className="rounded border border-slate-800 bg-slate-950/60 p-3">
+                      <p className="text-sm font-semibold text-slate-100">{session.title}</p>
+                      <p className="mt-1 text-xs leading-6 text-slate-300">{session.summary}</p>
+                    </article>
+                  ))}
+                </div>
+              </article>
+            </section>
+          </section>
+        ) : activeSection === "dashboard" ? (
           <div className="space-y-6">
             <section className="grid gap-4 xl:grid-cols-4">
               <article className="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
@@ -553,7 +642,7 @@ export default function PortalPage() {
           </div>
         ) : null}
 
-        {section === "courses" ? (
+        {activeSection === "courses" ? (
           <section className="grid gap-6 lg:grid-cols-2">
             {courseLibrary.map((course) => (
               <article
@@ -624,7 +713,7 @@ export default function PortalPage() {
           </section>
         ) : null}
 
-        {section === "resources" ? (
+        {activeSection === "resources" ? (
           <section className="rounded-2xl border border-slate-800 bg-slate-900/60 p-8">
             <h2 className="text-2xl font-semibold text-slate-100">Resource Section</h2>
             <p className="mt-3 text-slate-300">

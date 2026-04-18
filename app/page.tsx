@@ -47,7 +47,7 @@ export default function Home() {
 
   const valueStack = [
     "Full Nexus Vault Access (€250 Value)",
-    "20+ Executive Modules (€400 Value)",
+    "35+ Professional Modules (€400 Value)",
     "Proprietary SOPs & Legal Frameworks (€150 Value)",
     "Direct Line to Lead Architects (Priceless)",
   ];
