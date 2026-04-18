@@ -5,7 +5,7 @@ import { SiteHeader } from "../../components/site-header";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Read The Growth Nexus Terms of Service covering digital membership licensing, acceptable use, IP protection, payment obligations, and liability limits.",
+    "Read Nexus Growth Hub Terms of Service covering digital membership licensing, acceptable use, IP protection, payment obligations, and liability limits.",
 };
 
 export default function TermsPage() {
@@ -18,7 +18,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-slate-100">1. Acceptance of Terms</h2>
             <p>
-              By purchasing access, activating a membership key, or using The Growth Nexus platform, you
+              By purchasing access, activating a membership key, or using Nexus Growth Hub platform, you
               agree to these Terms of Service and all applicable laws. If you do not agree, do not
               activate or use the service.
             </p>
@@ -93,7 +93,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-slate-100">10. Limitation of Liability</h2>
             <p>
-              To the maximum extent permitted by law, The Growth Nexus and its operators are not liable for
+              To the maximum extent permitted by law, Nexus Growth Hub and its operators are not liable for
               indirect, incidental, special, consequential, or punitive damages, including loss of revenue,
               profits, or goodwill. Total aggregate liability is limited to the amount paid by you for the
               membership term at issue.

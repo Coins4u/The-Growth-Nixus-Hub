@@ -5,7 +5,7 @@ import { SiteHeader } from "../../components/site-header";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Understand how The Growth Hub collects, processes, protects, and retains member data under transparent privacy standards.",
+    "Understand how Nexus Growth Hub collects, processes, protects, and retains member data under transparent privacy standards.",
 };
 
 export default function PrivacyPage() {
@@ -47,7 +47,7 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-semibold text-slate-100">5. Data Retention and Rights</h2>
             <p>
               Data is retained only as long as needed for legal and operational requirements. Members may
-              request access, correction, or deletion by contacting hamzaamaarad757@gmail.com.
+              request access, correction, or deletion by contacting support@nexusgrowthub.com.
             </p>
           </section>
         </div>

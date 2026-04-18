@@ -3,9 +3,9 @@ import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 
 export const metadata: Metadata = {
-  title: "About The Growth Hub",
+  title: "About Nexus Growth Hub",
   description:
-    "Learn how The Growth Hub supports sovereign operators with strategic clarity, execution discipline, and enterprise-grade commercial integrity.",
+    "Learn how Nexus Growth Hub supports sovereign operators with strategic clarity, execution discipline, and enterprise-grade commercial integrity.",
 };
 
 export default function AboutPage() {
@@ -28,10 +28,10 @@ export default function AboutPage() {
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <h1 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">About The Growth Hub</h1>
+        <h1 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">About Nexus Growth Hub</h1>
         <div className="mt-6 max-w-4xl space-y-5 text-sm text-slate-300 sm:mt-8 sm:space-y-6 sm:text-base">
           <p>
-            The Growth Hub was created for entrepreneurs and executives who need more than surface-level
+            Nexus Growth Hub was created for entrepreneurs and executives who need more than surface-level
             networking. Our mission is to connect decision-makers with practical strategy and measurable
             momentum.
           </p>
@@ -42,7 +42,7 @@ export default function AboutPage() {
           </p>
           <p>
             Our team believes that sustainable growth comes from disciplined systems, resilient leadership,
-            and high-quality relationships. The Growth Hub exists to help entrepreneurs turn those pillars
+            and high-quality relationships. Nexus Growth Hub exists to help entrepreneurs turn those pillars
             into long-term outcomes.
           </p>
         </div>

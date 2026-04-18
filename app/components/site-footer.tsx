@@ -33,6 +33,12 @@ export function SiteFooter() {
         <div className="mt-2 grid gap-1 text-slate-300">
           <p>Operational Hours: 9 AM - 6 PM</p>
           <p>Global Support Centers: Agadir, Morocco | Amsterdam, NL</p>
+          <p>
+            Support:{" "}
+            <a className="hover:text-indigo-300" href="mailto:support@nexusgrowthub.com">
+              support@nexusgrowthub.com
+            </a>
+          </p>
         </div>
         <p className="text-slate-300">Hamza Amaarad - Authorized Community Founder</p>
       </div>

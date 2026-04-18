@@ -5,7 +5,7 @@ import { SiteHeader } from "../../components/site-header";
 export const metadata: Metadata = {
   title: "Refund Policy",
   description:
-    "Review The Growth Nexus refund policy for digital memberships, including the 72-hour unresolved technical-failure condition after key activation.",
+    "Review Nexus Growth Hub refund policy for digital memberships, including the 72-hour unresolved technical-failure condition after key activation.",
 };
 
 export default function RefundPage() {
@@ -18,7 +18,7 @@ export default function RefundPage() {
           <section>
             <h2 className="text-lg font-semibold text-slate-100">1. Digital Membership Nature</h2>
             <p>
-              The Growth Nexus provides digital membership access, including online modules, resources, and
+              Nexus Growth Hub provides digital membership access, including online modules, resources, and
               community systems. Because access is delivered electronically and can be consumed immediately,
               purchases are generally non-refundable except as expressly stated below.
             </p>
@@ -80,8 +80,8 @@ export default function RefundPage() {
               Contact support before initiating a chargeback so we can attempt remediation quickly.
               Unsupported chargebacks may result in account restrictions during investigation. For all refund
               matters, contact{" "}
-              <a className="text-cyan-300 underline underline-offset-4" href="mailto:hamzaamaarad757@gmail.com">
-                hamzaamaarad757@gmail.com
+              <a className="text-cyan-300 underline underline-offset-4" href="mailto:support@nexusgrowthub.com">
+                support@nexusgrowthub.com
               </a>
               .
             </p>

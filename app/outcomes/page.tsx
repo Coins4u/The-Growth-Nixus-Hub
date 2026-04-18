@@ -16,7 +16,7 @@ const caseStudies = [
     challenge:
       "The team had inconsistent acquisition quality and no shared decision model between growth and operations leadership.",
     intervention:
-      "The Growth Hub introduced an execution governance framework, weekly KPI review loop, and attribution calibration protocol.",
+      "Nexus Growth Hub introduced an execution governance framework, weekly KPI review loop, and attribution calibration protocol.",
     result: "31% pipeline-quality lift and 18% faster sales-cycle progression within one quarter.",
   },
   {
@@ -34,7 +34,7 @@ const caseStudies = [
     challenge:
       "Payment review posture was weak due to fragmented policy documentation and inconsistent support controls.",
     intervention:
-      "The Growth Hub implementation stack aligned legal pages, support systems, and operational disclosure standards.",
+      "Nexus Growth Hub implementation stack aligned legal pages, support systems, and operational disclosure standards.",
     result: "Processor-readiness posture established in six weeks with audit-ready policy alignment.",
   },
 ];

@@ -42,7 +42,7 @@ export function SiteHeader() {
       <div className="mx-auto w-full max-w-6xl px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-base font-semibold tracking-wide text-slate-100 sm:text-lg">
-            The Growth Hub
+            Nexus Growth Hub
           </Link>
 
           <button

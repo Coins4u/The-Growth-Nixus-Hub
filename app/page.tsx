@@ -6,9 +6,9 @@ import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
 
 export const metadata: Metadata = {
-  title: "The Growth Nexus | Advanced Systems for Global Scale",
+  title: "Nexus Growth Hub | Advanced Systems for Global Scale",
   description:
-    "The Growth Hub is a high-tier executive community delivering infrastructure architecture, AI automation systems, and B2B growth operations for global digital scale.",
+    "Nexus Growth Hub is a high-tier executive community delivering infrastructure architecture, AI automation systems, and B2B growth operations for global digital scale.",
 };
 
 export default function Home() {

@@ -79,7 +79,7 @@ export function OrderForm({ selectedPlan, onClose }: OrderFormProps) {
     setToast(null);
 
     try {
-      const response = await fetch("/api/order", {
+      const response = await fetch("/api/send-invoice", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

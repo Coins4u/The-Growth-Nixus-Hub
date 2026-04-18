@@ -5,7 +5,7 @@ import { SiteHeader } from "../../components/site-header";
 export const metadata: Metadata = {
   title: "DMCA and Ownership",
   description:
-    "Review The Growth Hub DMCA, ownership, and unauthorized-use policy for protected educational and strategic assets.",
+    "Review Nexus Growth Hub DMCA, ownership, and unauthorized-use policy for protected educational and strategic assets.",
 };
 
 export default function DmcaPage() {
@@ -18,8 +18,8 @@ export default function DmcaPage() {
           <section>
             <h2 className="text-lg font-semibold text-slate-100">1. Intellectual Property Ownership</h2>
             <p>
-              All materials published in The Growth Hub, including text, designs, course videos, strategic
-              templates, and downloadable files, are the exclusive property of The Growth Hub unless
+              All materials published in Nexus Growth Hub, including text, designs, course videos, strategic
+              templates, and downloadable files, are the exclusive property of Nexus Growth Hub unless
               otherwise stated.
             </p>
           </section>
@@ -28,7 +28,7 @@ export default function DmcaPage() {
             <p>
               We respect the intellectual property rights of others and respond to valid DMCA notices.
               Copyright owners who believe content infringes their rights may submit a formal complaint to
-              hamzaamaarad757@gmail.com.
+              support@nexusgrowthub.com.
             </p>
           </section>
           <section>

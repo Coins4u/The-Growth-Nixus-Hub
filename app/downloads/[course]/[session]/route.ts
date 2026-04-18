@@ -63,7 +63,7 @@ export async function GET(
     opacity: 1,
   });
 
-  page.drawText("The Growth Hub - Session Implementation Guide", {
+  page.drawText("Nexus Growth Hub - Session Implementation Guide", {
     x: 56,
     y: height - 78,
     size: 14,

@@ -6,7 +6,7 @@ import { SiteHeader } from "../components/site-header";
 export const metadata: Metadata = {
   title: "Membership Standards",
   description:
-    "Explore The Growth Hub membership standards, governance principles, and policy alignment for high-accountability executive operators.",
+    "Explore Nexus Growth Hub membership standards, governance principles, and policy alignment for high-accountability executive operators.",
 };
 
 const principles = [
@@ -51,7 +51,7 @@ export default function StandardsPage() {
           Built for serious operators who execute with discipline.
         </h1>
         <p className="mt-5 max-w-3xl text-slate-300">
-          The Growth Hub is intentionally structured as a high-trust, high-accountability environment.
+          Nexus Growth Hub is intentionally structured as a high-trust, high-accountability environment.
           These standards protect member quality, improve strategic clarity, and preserve long-term
           commercial value for the network.
         </p>

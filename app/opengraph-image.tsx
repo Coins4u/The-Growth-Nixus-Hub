@@ -24,9 +24,7 @@ export default function OpenGraphImage() {
           fontFamily: "Inter, Arial, sans-serif",
         }}
       >
-        <div style={{ fontSize: 24, letterSpacing: 2, textTransform: "uppercase", color: "#a5b4fc" }}>
-          The Growth Nexus
-        </div>
+        <div style={{ fontSize: 24, letterSpacing: 2, textTransform: "uppercase", color: "#a5b4fc" }}>Nexus Growth Hub</div>
         <div style={{ maxWidth: 900, display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 64, fontWeight: 700, lineHeight: 1.1 }}>
             Advanced Systems for Global Scale

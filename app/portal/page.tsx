@@ -381,7 +381,7 @@ export default function PortalPage() {
             />
           ) : null}
           <p className="mt-6 text-center text-xs text-slate-400">
-            Need help? Contact <span className="text-slate-200">hamzaamaarad757@gmail.com</span>
+            Need help? Contact <span className="text-slate-200">support@nexusgrowthub.com</span>
           </p>
         </motion.section>
       </main>
@@ -391,7 +391,7 @@ export default function PortalPage() {
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
       <aside className="flex flex-col border-b border-slate-800 bg-slate-900/80 p-4 md:min-h-screen md:w-72 md:border-b-0 md:border-r">
-        <h1 className="text-lg font-semibold text-slate-100">The Growth Hub Portal</h1>
+        <h1 className="text-lg font-semibold text-slate-100">Nexus Growth Hub Portal</h1>
         <p className="mt-1 text-sm text-slate-400">{membershipSummary}</p>
         <div className="mt-5 rounded-lg border border-slate-800 bg-slate-950 p-4 text-xs text-slate-400">
           <p className="font-semibold uppercase tracking-[0.15em] text-slate-300">System Status</p>
@@ -451,7 +451,7 @@ export default function PortalPage() {
         {!isAuditDemo ? (
           <>
             <a
-              href="mailto:hamzaamaarad757@gmail.com"
+              href="mailto:support@nexusgrowthub.com"
               className="mt-4 inline-block text-sm text-slate-300 hover:text-indigo-200"
             >
               Member Support
@@ -473,7 +473,7 @@ export default function PortalPage() {
           Return to Main Site
         </Link>
         <p className="mt-auto pt-6 text-[11px] leading-5 text-slate-500">
-          © 2026 The Growth Nexus Hub. All Rights Reserved. Enterprise License v4.2
+          © 2026 Nexus Growth Hub. All Rights Reserved. Enterprise License v4.2
         </p>
       </aside>
 
