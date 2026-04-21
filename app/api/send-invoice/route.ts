@@ -7,14 +7,14 @@ const SERVICE_NAME = "Nexus Growth Hub Membership";
 const FROM_EMAIL = "Nexus Growth Hub <support@nexusgrowthub.com>";
 
 const planPaymentLinks = {
-  Basic: "https://designflare.de/pack/firstpack.html",
-  Starter: "https://designflare.de/pack/secondpack.html",
-  Pro: "https://designflare.de/pack/thirdpack.html",
-  Growth: "https://designflare.de/pack/forthpack.html",
-  Executive: "https://designflare.de/pack/premiumfirstpack.html",
-  Elite: "https://designflare.de/pack/premiumsecondpack.html",
-  Corporate: "https://designflare.de/pack/premiumthirdpack.html",
-  Chairman: "https://designflare.de/pack/premiumforthpack.html",
+  Basic: "https://www.nexusgrowthub.com/contact",
+  Starter: "https://www.nexusgrowthub.com/contact",
+  Pro: "https://www.nexusgrowthub.com/contact",
+  Growth: "https://www.nexusgrowthub.com/contact",
+  Executive: "https://www.nexusgrowthub.com/contact",
+  Elite: "https://www.nexusgrowthub.com/contact",
+  Corporate: "https://www.nexusgrowthub.com/contact",
+  Chairman: "https://www.nexusgrowthub.com/contact",
 } as const;
 
 type MembershipPlan = keyof typeof planPaymentLinks;
