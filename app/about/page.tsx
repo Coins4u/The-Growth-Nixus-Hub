@@ -46,6 +46,15 @@ export default function AboutPage() {
             into long-term outcomes.
           </p>
         </div>
+        <section className="micro-lift mt-10 max-w-2xl rounded-xl border border-slate-800 bg-slate-900/70 p-5 sm:mt-12 sm:p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-indigo-300">Address</p>
+          <p className="mt-3 text-sm font-semibold text-slate-100 sm:text-base">Nexus Growth Hub</p>
+          <p className="mt-2 text-sm leading-7 text-slate-300 sm:text-base">
+            Lot Admine, Bloc E NR 213
+            <br />
+            Ait Melloul, 86150, Morocco
+          </p>
+        </section>
         <section className="mt-10 grid gap-4 sm:mt-12 sm:gap-6 md:grid-cols-3">
           {operatingPrinciples.map((principle) => (
             <article key={principle.title} className="micro-lift rounded-xl border border-slate-800 bg-slate-900/70 p-5 sm:p-6">
