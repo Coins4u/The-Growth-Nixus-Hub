@@ -30,17 +30,18 @@ export function SiteFooter() {
             DMCA / Ownership
           </Link>
         </div>
-        <div className="mt-2 grid gap-1 text-slate-300">
-          <p>Operational Hours: 9 AM - 6 PM</p>
-          <p>Global Support Centers: Agadir, Morocco | Amsterdam, NL</p>
-          <p>
+        <div className="mt-4 border-t border-slate-800 pt-4">
+          <p className="font-semibold text-slate-200">Nexus Growth Hub</p>
+          <p className="mt-2 text-slate-300">Registered by: Hamza Amaarad (Auto-Entrepreneur)</p>
+          <p className="mt-1 text-slate-300">ICE: 003454779000047</p>
+          <p className="mt-1 text-slate-300">Address: Ait Melloul, Morocco</p>
+          <p className="mt-1 text-slate-300">
             Support:{" "}
             <a className="hover:text-indigo-300" href="mailto:support@nexusgrowthub.com">
               support@nexusgrowthub.com
             </a>
           </p>
         </div>
-        <p className="text-slate-300">Hamza Amaarad - Authorized Community Founder</p>
       </div>
     </footer>
   );
